@@ -22,6 +22,41 @@
       padding-left: 15px;
       padding-right: 15px;
     }
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .popup-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #000;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
   </style>
 </head>
 
@@ -70,7 +105,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Menu 1 -->
         <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
-          <img src="assets/menu1.jpg" alt="Menu 1" class="rounded-xl w-full h-56 object-cover mb-4">
+          <img src="assets/menu1.jpg" alt="Menu 1" class="rounded-xl w-full h-56 object-cover mb-4" onclick="openPopup(this)">
           <h3 class="text-xl font-semibold text-amber-700">paket ayam geprek + mi goreng</h3>
           <p class="text-gray-600 mt-2">Pedasnya pas, lezat maksimal.</p>
           <span class="block mt-3 text-lg font-bold text-amber-600">Rp 17.000</span>
@@ -79,7 +114,7 @@
 
         <!-- Menu 2 -->
         <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
-          <img src="assets/menu2.jpg" alt="Menu 2" class="rounded-xl w-full h-56 object-cover mb-4">
+          <img src="assets/menu2.jpg" alt="Menu 2" class="rounded-xl w-full h-56 object-cover mb-4" onclick="openPopup(this)">
           <h3 class="text-xl font-semibold text-amber-700">geprek + nasi + tahu + tempe</h3>
           <p class="text-gray-600 mt-2">Lengkap, nikmat, dan mengenyangkan.</p>
           <span class="block mt-3 text-lg font-bold text-amber-600">Rp 15.000</span>
@@ -88,7 +123,7 @@
 
         <!-- Menu 3 -->
         <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
-          <img src="assets/menu3.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4">
+          <img src="assets/menu3.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4" onclick="openPopup(this)">
           <h3 class="text-xl font-semibold text-amber-700">mie ayam + tahu</h3>
           <p class="text-gray-600 mt-2">Gurih, hangat, dan menggugah selera.</p>
           <span class="block mt-3 text-lg font-bold text-amber-600">Rp 13.000</span>
@@ -97,7 +132,7 @@
 
          <!-- Menu 4 -->
         <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
-          <img src="assets/menu4.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4">
+          <img src="assets/menu4.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4" onclick="openPopup(this)">
           <h3 class="text-xl font-semibold text-amber-700">Tahu Balado 1 prosi</h3>
           <p class="text-gray-600 mt-2">Pedas manis bikin nagih.</p>
           <span class="block mt-3 text-lg font-bold text-amber-600">Rp 10.000</span>
@@ -106,6 +141,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- About -->
   <section id="about" class="py-20 bg-amber-50 fade-in">
@@ -124,7 +160,7 @@
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-3xl font-bold text-amber-600 mb-6">Hubungi Kami</h2>
       <p class="text-gray-600 mb-8">Pesan sekarang atau kunjungi warung kami!</p>
-      <p><strong>📍 Alamat:</strong> Sondana (Dekat 9XGX+G46, Sondana, Kec. Bolaang Uki, Kabupaten Bolaang Mongondow Selatan, Sulawesi Utara)</p>
+      <p style="padding-left: 15px; padding-right: 15px;"><strong>📍 Alamat:</strong> Sondana (Dekat 9XGX+G46, Sondana, Kec. Bolaang Uki, Kabupaten Bolaang Mongondow Selatan, Sulawesi Utara)</p>
       <p><strong>📞 Telepon:</strong> +62 857-9617-7243</p>
     </div>
   </section>
@@ -158,9 +194,12 @@
     <button onclick="requestLocation()" class="mt-2 px-5 py-2 bg-green-600 hover:bg-green-700 rounded-lg">Aktifkan Lokasi Sekarang</button>
   </div>
 
-
+  <!-- Popup Image Viewer -->
+  <div id="imgPopup" class="popup" onclick="closePopup()">
+    <span class="close">&times;</span>
+    <img class="popup-content" id="popupImg">
+  </div>
 
   <script src="js/main.js"></script>
 </body>
 </html>
-

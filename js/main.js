@@ -157,3 +157,15 @@ confirmBtn.addEventListener("click", () => {
   window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, "_blank");
   confirmModal.classList.add("hidden");
 });
+
+function openPopup(imgElement) {
+  const popup = document.getElementById("imgPopup");
+  const popupImg = document.getElementById("popupImg");
+  popup.style.display = "block";
+  popupImg.src = imgElement.src;
+}
+
+function closePopup() {
+  document.getElementById("imgPopup").style.display = "none";
+};
+
