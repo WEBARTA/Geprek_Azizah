@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geprek Azizah – Mi Ayam & Geprek Lezat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/jpeg" href="assets/LOGO.jpeg" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    body.no-access {
+      overflow: hidden;
+      pointer-events: none;
+      filter: blur(3px);
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-3">
+        <img src="assets/LOGO.jpeg" alt="Logo" class="w-10 h-10">
+        <h1 class="text-2xl font-bold text-amber-600">Geprek Azizah</h1>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-lg">
+        <a href="#home" class="hover:text-amber-600">Beranda</a>
+        <a href="#menu" class="hover:text-amber-600">Menu</a>
+        <a href="#about" class="hover:text-amber-600">Tentang</a>
+        <a href="#contact" class="hover:text-amber-600">Kontak</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden p-2 border rounded-lg hover:bg-amber-100">☰</button>
+    </div>
+
+    <div id="mobile-menu" class="hidden flex-col bg-white shadow-md p-4 space-y-2 md:hidden">
+      <a href="#home" class="hover:text-amber-600">Beranda</a>
+      <a href="#menu" class="hover:text-amber-600">Menu</a>
+      <a href="#about" class="hover:text-amber-600">Tentang</a>
+      <a href="#contact" class="hover:text-amber-600">Kontak</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative pt-24 h-[90vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative text-center text-white fade-in">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Nikmati Sensasi Pedas & Gurih!</h2>
+      <p class="text-lg mb-6">Mi Ayam & Ayam Geprek terbaik khas Geprek Azizah</p>
+      <a href="#menu" class="bg-amber-500 hover:bg-amber-600 px-6 py-3 rounded-lg text-white font-semibold">Lihat Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto text-center fade-in">
+      <h2 class="text-3xl font-bold mb-6 text-amber-600">Menu Favorit Kami</h2>
+      <p class="mb-10 text-gray-600">Pilih menu dan tentukan jumlah pesananmu!</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Menu 1 -->
+        <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <img src="assets/menu1.jpg" alt="Menu 1" class="rounded-xl w-full h-56 object-cover mb-4">
+          <h3 class="text-xl font-semibold text-amber-700">paket ayam geprek + mi goreng</h3>
+          <p class="text-gray-600 mt-2"></p>
+          <span class="block mt-3 text-lg font-bold text-amber-600">Rp 17.000</span>
+          <input type="number" min="0" id="qty1" placeholder="Jumlah" class="mt-3 w-full border rounded-lg p-2 text-center" />
+        </div>
+
+        <!-- Menu 2 -->
+        <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <img src="assets/menu2.jpg" alt="Menu 2" class="rounded-xl w-full h-56 object-cover mb-4">
+          <h3 class="text-xl font-semibold text-amber-700">geprek + nasi + tahu + tempe</h3>
+          <p class="text-gray-600 mt-2"></p>
+          <span class="block mt-3 text-lg font-bold text-amber-600">Rp 15.000</span>
+          <input type="number" min="0" id="qty2" placeholder="Jumlah" class="mt-3 w-full border rounded-lg p-2 text-center" />
+        </div>
+
+        <!-- Menu 3 -->
+        <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <img src="assets/menu3.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4">
+          <h3 class="text-xl font-semibold text-amber-700">mie ayam + tahu</h3>
+          <p class="text-gray-600 mt-2"></p>
+          <span class="block mt-3 text-lg font-bold text-amber-600">Rp 13.000</span>
+          <input type="number" min="0" id="qty3" placeholder="Jumlah" class="mt-3 w-full border rounded-lg p-2 text-center" />
+        </div>
+
+         <!-- Menu 4 -->
+        <div class="menu-card bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <img src="assets/menu4.jpg" alt="Menu 3" class="rounded-xl w-full h-56 object-cover mb-4">
+          <h3 class="text-xl font-semibold text-amber-700">Tahu Balado 1 prosi</h3>
+          <p class="text-gray-600 mt-2">Tahu balado crispi lembut.</p>
+          <span class="block mt-3 text-lg font-bold text-amber-600">Rp 10.000</span>
+          <input type="number" min="0" id="qty4" placeholder="Jumlah" class="mt-3 w-full border rounded-lg p-2 text-center" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 bg-amber-50 fade-in">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <img src="assets/about.jpg" alt="Tentang Kami" class="rounded-2xl shadow-lg w-full h-80 object-cover">
+      <div>
+        <h2 class="text-3xl font-bold text-amber-700 mb-4">Tentang Geprek Azizah</h2>
+        <p class="text-gray-700 mb-4">Berdiri sejak 2020, Geprek Azizah menghadirkan cita rasa khas ayam geprek dan mi ayam dengan bahan berkualitas, sambal pedas nikmat, dan pelayanan terbaik.</p>
+        <p class="text-gray-700">Kami selalu berkomitmen untuk memberikan pengalaman kuliner yang memuaskan di setiap suapan. Datang dan rasakan sensasinya!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-white fade-in">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-amber-600 mb-6">Hubungi Kami</h2>
+      <p class="text-gray-600 mb-8">Pesan sekarang atau kunjungi warung kami!</p>
+      <p><strong>📍 Alamat:</strong> Sondana (Dekat 9XGX+G46, Sondana, Kec. Bolaang Uki, Kabupaten Bolaang Mongondow Selatan, Sulawesi Utara)</p>
+      <p><strong>📞 Telepon:</strong> +62 857-9617-7243</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-amber-600 text-white text-center py-6">
+    <p>© 2025 Geprek Azizah. All rights reserved.</p>
+  </footer>
+
+  <!-- Tombol Belanja -->
+  <button id="cartBtn" class="hidden fixed bottom-6 right-6 bg-amber-600 hover:bg-amber-700 text-white p-4 rounded-full shadow-lg text-2xl">🛒</button>
+
+  <!-- Modal Konfirmasi -->
+  <div id="confirmModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-2xl shadow-lg w-96 text-center">
+      <h3 class="text-xl font-semibold text-amber-700 mb-4">Konfirmasi Pesanan</h3>
+      <p id="orderSummary" class="text-gray-700 mb-6"></p>
+      <div class="flex justify-center gap-4">
+        <button id="cancelBtn" class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400">Batal</button>
+        <button id="confirmBtn" class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700">Yakin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Peringatan jika lokasi ditolak -->
+  <div id="location-warning" class="fixed inset-0 bg-black/80 text-white flex flex-col justify-center items-center text-center z-50 hidden">
+    <h2 class="text-2xl font-bold mb-3">Akses Lokasi Diperlukan</h2>
+    <p id="locationMessage" class="max-w-md mb-4">
+      Website ini memerlukan akses lokasi untuk memastikan pesanan Anda berasal dari area layanan kami dan mencegah penipuan online.
+    </p>
+    <button onclick="requestLocation()" class="mt-2 px-5 py-2 bg-green-600 hover:bg-green-700 rounded-lg">Aktifkan Lokasi Sekarang</button>
+  </div>
+
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
